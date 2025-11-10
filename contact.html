@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Softly Label</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="top-bar">
+        <div class="spacer"></div> <!-- Left spacer -->
+
+        <!-- Logo centered -->
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Softly Label Logo"></a>
+        </div>
+
+        <!-- Icons on right -->
+        <div class="icons">
+            <div><i class="fas fa-user"></i></div>
+            <div><i class="fas fa-shopping-cart"></i></div>
+            <div><i class="fas fa-search"></i></div>
+        </div>
+    </div>
+
+    <!-- Navbar immediately below top-bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="bracelet.html">Bracelet</a>
+        <a href="necklaces.html">Necklaces</a>
+        <a href="rings.html">Rings</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+</header>
+
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <video autoplay muted loop class="background-video">
+      <source src="contact-bg.mp4" type="video/mp4">
+    </video>
+
+    <div class="contact-container">
+      <h2>Get in Touch</h2>
+      <p>We’d love to hear from you! Fill out the form below and we’ll get back to you as soon as possible 💌</p>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email or Contact Number</label>
+          <input type="text" id="email" name="email" placeholder="Enter your email or number" required>
+        </div>
+
+        <div class="input-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        </div>
+
+        <div class="input-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="contact-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Softly Label. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
