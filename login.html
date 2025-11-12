@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewelry Brand Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600&display=swap');
+
+    :root {
+      --dark-brown: #4D2E1B;
+      --taupe: #574F49;
+      --beige: #a09889;
+      --cream: #DFD3C4;
+      --ivory: #F5ECE1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 780px;
+      max-width: 92%;
+      background: var(--ivory);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(77, 46, 27, 0.15);
+      overflow: hidden;
+      display: flex;
+      transition: 0.4s ease;
+    }
+
+    .image-section {
+      flex: 1;
+     background-image: url('loginbg.jpg');
+     background-size: cover;
+     background-position: center;
+
+      background-position: center;
+      position: relative;
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(77, 46, 27, 0.25);
+      backdrop-filter: blur(2px);
+    }
+
+    .form-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 60px;
+      background: var(--ivory);
+      transition: 0.4s ease;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-brown);
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 13px 2px 13px 40px;
+      border: 1.5px solid var(--beige);
+      border-radius: 8px;
+      background: var(--ivory);
+      font-size: 1rem;
+      color: var(--taupe);
+      transition: all 0.3s ease;
+    }
+
+    .input-box input:focus {
+      border-color: var(--dark-brown);
+      outline: none;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(77, 46, 27, 0.1);
+    }
+
+    .input-box svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      stroke: var(--taupe);
+      stroke-width: 1.6;
+      fill: none;
+    }
+
+    .forgot-password {
+      font-size: 0.9rem;
+      color: var(--beige);
+      text-align: right;
+      cursor: pointer;
+      font-style: italic;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: var(--dark-brown);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 13px 0;
+      background: var(--dark-brown);
+      color: var(--ivory);
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: var(--taupe);
+    }
+
+    .toggle-text {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: var(--taupe);
+    }
+
+    .toggle-text span {
+      color: var(--dark-brown);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+      .image-section {
+        height: 200px;
+      }
+      .form-section {
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="authBox">
+    <div class="image-section">
+      <div class="image-overlay"></div>
+    </div>
+
+    <div class="form-section" id="formSection">
+      <h2 id="formTitle">Welcome Back</h2>
+      <form id="loginForm">
+        <div class="input-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 8-4 8-4s8 0 8 4v2H4v-2z"/>
+          </svg>
+          <input type="text" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <rect x="5" y="11" width="14" height="10" rx="2" ry="2"/>
+            <path d="M8 11V7a4 4 0 1 1 8 0v4"/>
+          </svg>
+          <input type="password" placeholder="Password" required>
+        </div>
+        <div class="forgot-password">Forgot Password?</div>
+        <button type="submit" class="btn">LOGIN</button>
+        <div class="toggle-text">
+          Don’t have an account? <span id="signupToggle">Sign Up</span>
+        </div>
+      </form>
+
+      <!-- Sign Up Form (hidden by default) -->
+      <form id="signupForm" style="display:none;">
+        <div class="input-box">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="input-box">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Create Password" required>
+        </div>
+        <button type="submit" class="btn">SIGN UP</button>
+        <div class="toggle-text">
+          Already have an account? <span id="loginToggle">Login</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const signupToggle = document.getElementById('signupToggle');
+    const loginToggle = document.getElementById('loginToggle');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const formTitle = document.getElementById('formTitle');
+
+    signupToggle.addEventListener('click', () => {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+      formTitle.textContent = 'Create Account';
+    });
+
+    loginToggle.addEventListener('click', () => {
+      signupForm.style.display = 'none';
+      loginForm.style.display = 'block';
+      formTitle.textContent = 'Welcome Back';
+    });
+  </script>
+</body>
+</html>
