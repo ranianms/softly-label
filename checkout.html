@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Softly Label Checkout</title>
+
+  <!-- Font & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== BASE STYLES ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #eadcce;
+      color: #333;
+      font-size: 1.6rem;
+      padding-top: 140px;
+    }
+
+    /* ========== HEADER ========== */
+    header.header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #eadcce;
+      border-bottom: 1px solid #d3c3ad;
+      z-index: 1000;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 9%;
+    }
+
+    .logo img {
+      height: 85px;
+    }
+
+    .icons {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 2rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .icons div:hover {
+      color: #b5814f;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 0.8rem 5%;
+      background: #eadcce;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #b8860b;
+    }
+
+    /* ========== MAIN CONTAINER ========== */
+    .checkout-container {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 2rem 9%;
+      display: flex;
+      gap: 60px;
+      justify-content: space-between;
+    }
+
+    /* LEFT FORM */
+    .checkout-form {
+      flex: 2;
+      background: #f6e8db;
+      border-radius: 8px;
+      padding: 30px 40px;
+      box-shadow: 0 0 12px #d3c3ad99;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .checkout-form h2 {
+      font-weight: 700;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      color: #5a4a3c;
+    }
+
+    .login-link {
+      font-size: 1.3rem;
+      text-align: right;
+    }
+
+    .login-link a {
+      color: #b5814f;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* FORM INPUTS */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-controls {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      flex: 1 1 45%;
+      padding: 10px 14px;
+      border-radius: 25px;
+      border: 1.5px solid #c9b69c;
+      font-size: 1.4rem;
+      background-color: #fff8f0;
+      color: #423926;
+    }
+
+    input:focus {
+      border-color: #b5814f;
+      outline: none;
+    }
+
+    /* RADIO BUTTONS */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      border-top: 1.5px solid #c3b69c;
+      padding-top: 20px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 600;
+      color: #665842;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .radio-desc {
+      position: absolute;
+      right: 90px;
+      font-size: 1.15rem;
+      color: #9a8768;
+    }
+
+    .radio-price {
+      position: absolute;
+      right: 25px;
+      font-weight: 700;
+      color: #b5814f;
+      font-size: 1.4rem;
+    }
+
+    /* CARD INPUTS */
+    .card-inputs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-left: 35px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+
+    .card-inputs input {
+      flex: 1 1 45%;
+    }
+
+    /* PURCHASE BUTTON */
+    .purchase-btn {
+      width: 150px;
+      border-radius: 30px;
+      background-color: #f07b96;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.6rem;
+      padding: 14px 0;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .purchase-btn:hover {
+      background-color: #d9607e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* RIGHT ORDER SUMMARY */
+    .order-summary {
+      flex: 1;
+      background: #f6e8db;
+      border-radius: 8px;
+      padding: 30px 25px;
+      box-shadow: 0 0 11px #d3c3ad99;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .order-item {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      border-bottom: 1.5px solid #d3c3ad;
+      padding-bottom: 16px;
+    }
+
+    .order-item img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .order-totals {
+      font-size: 1.45rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .order-totals div {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .order-totals .total {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #b5814f;
+      border-top: 2px solid #b5814f;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1.5px solid #d3c3ad;
+      background: #eadcce;
+      padding: 28px 9%;
+      font-size: 1.3rem;
+      color: #5a4a3c;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 36px;
+    }
+
+    .footer-subscribe {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1 1 290px;
+    }
+
+    .footer-subscribe input {
+      padding: 10px 16px;
+      border-radius: 30px;
+      border: 1.5px solid #d3c3ad;
+      background: #fff8f0;
+    }
+
+    .footer-subscribe button {
+      background-color: #b5814f;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-weight: 700;
+      font-size: 1.8rem;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      flex: 5 1 540px;
+    }
+
+    .footer-links h4 {
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: #6c5e4d;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #b5814f;
+      text-decoration: underline;
+    }
+
+    .footer-privacy {
+      flex-basis: 100%;
+      margin-top: 24px;
+      font-size: 1.15rem;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .checkout-container {
+        flex-direction: column;
+        padding: 2rem 5%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-controls {
+        flex-direction: column;
+      }
+      .purchase-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="top-bar">
+      <div class="spacer"></div>
+
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="Softly Label Logo" /></a>
+      </div>
+
+      <div class="icons">
+        <div><i class="fas fa-user"></i></div>
+        <div><i class="fas fa-shopping-cart"></i></div>
+        <div><i class="fas fa-search"></i></div>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="bracelet.html">Bracelet</a>
+      <a href="necklaces.html">Necklaces</a>
+      <a href="rings.html">Rings</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- Main Checkout Content -->
+  <main class="checkout-container">
+
+    <!-- Left: Checkout Form -->
+    <section class="checkout-form" aria-labelledby="checkout-title">
+      <h2 id="checkout-title">Checkout</h2>
+      <div class="login-link">
+        Have an account? <a href="#">Log in</a>
+      </div>
+
+      <form id="checkout-form" action="#" method="POST">
+
+        <!-- Contact Information -->
+        <div class="form-group">
+          <label>Contact information</label>
+          <div class="form-controls">
+            <input type="text" placeholder="Name*" required />
+            <input type="text" placeholder="Last name*" required />
+          </div>
+          <div class="form-controls">
+            <input type="email" placeholder="Email Address*" required />
+            <input type="tel" placeholder="Phone*" required />
+          </div>
+        </div>
+
+        <!-- Shipping Information -->
+        <div class="form-group">
+          <label>Shipping Information</label>
+          <div class="form-controls">
+            <input type="text" placeholder="Country/Region*" required />
+            <input type="text" placeholder="City*" required />
+          </div>
+          <div class="form-controls">
+            <input type="text" placeholder="Address*" required />
+            <input type="text" placeholder="Zip/Postal Code*" required />
+          </div>
+        </div>
+
+        <!-- Delivery -->
+        <div class="form-group">
+          <label>Delivery</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="delivery" value="standard" checked />
+              Standard shipping
+              <span class="radio-desc">1–2 days</span>
+              <span class="radio-price">Free</span>
+            </label>
+            <label>
+              <input type="radio" name="delivery" value="express" />
+              Express shipping
+              <span class="radio-desc">1–2 hours</span>
+              <span class="radio-price">$10</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Payment -->
+        <div class="form-group">
+          <label>Payment</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="paymentMethod" value="creditCard" checked />
+              Credit Card
+            </label>
+            <div class="card-inputs">
+              <input type="text" placeholder="Card Number" required />
+              <input type="text" placeholder="Expiration (MM/YY)" required />
+              <input type="text" placeholder="Cardholder" required />
+              <input type="text" placeholder="CVV" required />
+            </div>
+            <label><input type="radio" name="paymentMethod" value="googlePay" /> Baiduri Transfer </label>
+            <label><input type="radio" name="paymentMethod" value="applePay" /> Bibd </label>
+          </div>
+        </div>
+
+        <p class="privacy-text">
+          By clicking the ‘Purchase’ button, you agree to our <a href="#">Privacy Policy</a> and <a href="#">User Agreement</a>.
+        </p>
+
+        <button type="submit" class="purchase-btn">PURCHASE</button>
+      </form>
+    </section>
+
+    <!-- Right: Order Summary -->
+    <section class="order-summary" aria-labelledby="order-summary-title">
+      <h2 id="order-summary-title">Your Order</h2>
+
+      <article class="order-item">
+        <img src="bracelet.jpg" alt="Gold Bracelet" />
+        <div class="order-item-info">
+          <p class="item-name">Gold Bracelet</p>
+          <p class="item-price">$35</p>
+          <p class="item-size">Size: Adjustable</p>
+        </div>
+      </article>
+
+      <article class="order-item">
+        <img src="necklace.jpg" alt="Silver Necklace" />
+        <div class="order-item-info">
+          <p class="item-name">Silver Necklace</p>
+          <p class="item-price">$30</p>
+          <p class="item-size">Length: 40cm</p>
+        </div>
+      </article>
+
+      <div class="order-totals">
+        <div><span>Shipping</span><span>$10</span></div>
+        <div class="total"><span>Total</span><span>$75</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-subscribe">
+      <span>Subscribe for 10% off jewelry</span>
+      <input type="email" placeholder="Email" />
+      <button>→</button>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>BUYERS</h4>
+        <ul>
+          <li><a href="#">Payment</a></li>
+          <li><a href="#">Delivery</a></li>
+          <li><a href="#">Return</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CATALOG</h4>
+        <ul>
+          <li><a href="#">Bracelets</a></li>
+          <li><a href="#">Necklaces</a></li>
+          <li><a href="#">Rings</a></li>
+          <li><a href="#">Earrings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ABOUT US</h4>
+        <ul>
+          <li><a href="#">About Company</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Cooperation</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>SOCIAL MEDIA</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-privacy">
+      &copy; 2025 Softly Label. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
