@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Softly Label</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>   
+
+<body>
+    <!--Website Header-->
+    <header class="header">
+        <div class="top-bar">
+        <div class="spacer"></div>
+
+        <a href="#" class="logo">
+            <img src="Logo.png" alt="Logo">
+        </a>
+        <div class="icons">
+            <a href="sl-account.html" class="account-icon">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+            <a href="sl-cart.html" class="cart-icon">
+                <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            </a>
+            <div class="fas fa-search" id="search-btn"></div>
+        </div>
+    </header>
+
+    <!--Navigation Bar-->
+    <nav class="navbar">
+        <a href="sl-home.html">Home</a>
+        <a href="sl-jewelries.html">Jewelries</a>
+        <a href="sl-contact.html">Contact</a>
+        <a href="sl-faq.html">FAQ</a>
+    
+        <!-- Search Form -->    
+        <form id="search-form" class="search-form" style="display: none;">
+            <input type="text" id="search-input" placeholder="Search Product.."/>
+            <button type="submit">Search</button>
+            <button type="button" id="search-cancel">&times;</button>
+        </form>
+    </nav>
+    
+        <!-- Search Form -->    
+        <form id="search-form" class="search-form" style="display: none;">
+            <input type="text" id="search-input" placeholder="Search Product.."/>
+            <button type="submit">Search</button>
+            <button type="button" id="search-cancel">&times;</button>
+        </form>
+    </nav>
+
+    <!-- Shopping Cart Section -->
+    <main class="cart-container">
+        <section class="cart-items">
+            <a href="sl-jewelries.html" class="back-link"><i class="fas fa-arrow-left"></i>Continue Shopping</a>
+            <h1>Your Cart</h1>
+            <div id="cart-items-list" class="cart-items-list">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Cart is currently empty.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Summary -->
+        <aside class="order-total">
+            <h2>Order Total</h2>
+            <hr>
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="total-price">0 BND</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-contact">
+            <div class="contact-items">
+                <p><i class="fas fa-map-marker-alt"></i>RPN Kampung Lumut, Kuala Belait</p>
+                <p><i class="fas fa-envelope"></i>
+                    <a href=mailto:"softlylabel@gmail.com">softlylabel@gmail.com</a></p>
+                <p><i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/SoftlyLabel/" target="_blank">@softlylabel</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Softly Label. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Java Script -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

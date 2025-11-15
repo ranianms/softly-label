@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelries | Softly Label</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>   
+
+<body class="jewelry-page">
+    <!--Website Header-->
+    <header class="header">
+        <div class="top-bar">
+        <div class="spacer"></div>
+
+        <a href="#" class="logo">
+            <img src="Logo.png" alt="Logo">
+        </a>
+        <div class="icons">
+            <a href="sl-account.html" class="account-icon">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+            <a href="sl-cart.html" class="cart-icon">
+                <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            </a>
+            <div class="fas fa-search" id="search-btn"></div>
+        </div>
+    </header>
+
+    <!--Navigation Bar-->
+    <nav class="navbar">
+        <a href="sl-home.html">Home</a>
+        <div class="dropdown">
+            <a href="sl-jewelries.html" class="dropbtn">Jewelries</a>
+            <div class="dropdown-content">
+                <a href="sl-jewelries.html#Bracelets">Bracelets</a>
+                <a href="sl-jewelries.html#Earrings">Earrings</a>
+                <a href="sl-jewelries.html#Necklaces">Necklaces</a>
+                <a href="sl-jewelries.html#Rings">Rings</a>
+            </div>
+        </div>
+        <a href="sl-contact.html">Contact</a>
+        <a href="sl-faq.html">FAQ</a>
+    
+        <!-- Search Form -->    
+        <form id="search-form" class="search-form" style="display: none;">
+            <input type="text" id="search-input" placeholder="Search Product.."/>
+            <button type="submit">Search</button>
+            <button type="button" id="search-cancel">&times;</button>
+        </form>
+    </nav>
+    
+    <main>
+        <!-- Featured Products Section -->
+        <section id="jewelries" class="featured-section">
+            <h2>Featured Products</h2>
+            <div class="product-grid featured-products">
+                <a href="#Bracelets" class="product-card featured-product-card">
+                    <h3>Bracelets</h3>
+                    <img src="jewl-b.jpg" alt="Bracelets">
+                </a>
+
+                <a href="#Earrings" class="product-card featured-product-card">
+                    <h3>Earrings</h3>
+                    <img src="jewl-e.jpg" alt="Earrings">
+                </a>
+
+                <a href="#Necklaces" class="product-card featured-product-card">
+                    <h3>Necklaces</h3>
+                    <img src="jewl-n.jpg" alt="Necklaces">
+                </a>
+
+                <a href="#Rings" class="product-card featured-product-card">
+                    <h3>Rings</h3>
+                    <img src="jewl-r.jpg" alt="Rings">
+                </a>
+            </div>
+        </section>
+
+        <!-- Bracelets Section -->
+        <section id="Bracelets" class="products-section">
+            <h2>Bracelets Collection</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Eloise Bangle" data-price="28" data-img="b-eloise.jpg">
+                    <img src="b-eloise.jpg" alt="Eloise Bangle">
+                    <h3>Eloise Bangle</h3>
+                    <p>28 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Herringbone Bracelet" data-price="15" data-img="b-herringbone.jpeg">
+                    <img src="b-herringbone.jpeg" alt="Herringbone Bracelet">
+                    <h3>Herringbone Bracelet</h3>
+                    <p>15 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Meredith Bracelet" data-price="20" data-img="b-meredith.jpg">
+                    <img src="b-meredith.jpg" alt="Meredith Bracelet">
+                    <h3>Meredith</h3>
+                    <p>20 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Earrings Section -->
+        <section id="Earrings" class="products-section">
+            <h2>Earrings Collection</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Diana Earring" data-price="25" data-img="e-diana.jpg">
+                    <img src="e-diana.jpg" alt="Diana Earring">
+                    <h3>Diana</h3>
+                    <p>25 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Ketupat Earring" data-price="25" data-img="e-ketupat.jpg">
+                    <img src="e-ketupat.jpg" alt="Ketupat Earring">
+                    <h3>Ketupat</h3>
+                    <p>25 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Pearlina Earring" data-price="25" data-img="e-pearlina.jpg">
+                    <img src="e-pearlina.jpg" alt="Pearlina Earring">
+                    <h3>Pearlina</h3>
+                    <p>25 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Necklace Section-->
+        <section id="Necklaces" class="products-section">
+            <h2>Necklaces Collection</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Celestia Necklace" data-price="30" data-img="n-celestia.jpg">
+                    <img src="n-celestia.jpg" alt="Celestia Necklace">
+                    <h3>Celestia</h3>
+                    <p>30 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Heart Locket Necklace" data-price="18" data-img="n-heartlocket.jpg">
+                    <img src="n-heartlocket.jpg" alt="Heart Locket Necklace">
+                    <h3>Heart Locket</h3>
+                    <p>18 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rings Section -->
+        <section id="Rings" class="products-section">
+            <h2>Rings Collection</h2>
+            <div class="product-grid">
+                <div class="product-card" data-name="Ines and Solstice" data-price="23" data-img="r-inessolstice.jpg">
+                    <img src="r-inessolstice.jpg" alt="Ines and Solstice Rings">
+                    <h3>Ines and Solstice</h3>
+                    <p>23 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Nerida Ring" data-price="13" data-img="r-nerida.jpg">
+                    <img src="r-nerida.jpg" alt="Nerida Ring">
+                    <h3>Nerida</h3>
+                    <p>13 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card" data-name="Thea Ring" data-price="13" data-img="r-thea.jpg">
+                    <img src="r-thea.jpg" alt="Thea Ring">
+                    <h3>Thea</h3>
+                    <p>13 BND</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-contact">
+            <div class="contact-items">
+                <p><i class="fas fa-map-marker-alt"></i>RPN Kampung Lumut, Kuala Belait</p>
+                <p><i class="fas fa-envelope"></i>
+                    <a href=mailto:"softlylabel@gmail.com">softlylabel@gmail.com</a></p>
+                <p><i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/SoftlyLabel/" target="_blank">@softlylabel</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Softly Label. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Java Script-->
+    <script src="script.js"></script>
+    
+</body>
+</html>
