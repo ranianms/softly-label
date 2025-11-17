@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Softly Label</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>   
+
+<body>
+    <!--Website Header-->
+    <header class="header">
+        <div class="top-bar">
+            <div class="spacer"></div>
+
+            <a href="#" class="logo">
+                <img src="Logo.png" alt="Logo">
+            </a>
+            <div class="icons">
+                <a href="sl-account.html" class="account-icon">
+                    <div class="fas fa-user" id="login-btn"></div>
+                </a>
+                <a href="sl-cart.html" class="cart-icon">
+                    <div class="fas fa-shopping-cart" id="cart-btn"></div>
+                </a>
+                <div class="fas fa-search" id="search-btn"></div>
+            </div>
+        </div>
+    </header>
+
+    <!--Navigation Bar-->
+    <nav class="navbar">
+        <a href="sl-home.html">Home</a>
+        <a href="sl-jewelries.html">Jewelries</a>
+        <a href="sl-contact.html">Contact</a>
+        <a href="sl-faq.html">FAQ</a>
+
+        <!-- Search Form -->    
+        <form id="search-form" class="search-form" style="display: none;">
+            <input type="text" id="search-input" placeholder="Search Product.." required />
+            <button type="submit">Search</button>
+            <button type="button" id="search-cancel">&times;</button>
+        </form>
+    </nav>
+
+    <main class="checkout-container">
+
+        <!-- FIXED: REAL FORM -->
+        <form class="checkout-form" aria-labelledby="checkout-title">
+
+            <h2 id="checkout-title">Checkout</h2>
+
+            <!-- Contact Information -->
+            <div class="form-group">
+                <label>Contact Information</label>
+                <div class="form-controls">
+                    <input type="text" placeholder="First Name" required />
+                    <input type="text" placeholder="Last Name" required />
+                </div>
+                <div class="form-controls">
+                    <input type="email" placeholder="Email Address" required />
+                    <input type="tel" placeholder="Phone Number" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Shipping Information</label>
+                <div class="form-controls">
+                    <input type="text" placeholder="Country/Region" required />
+                    <input type="text" placeholder="City" required />
+                </div>
+                <div class="form-controls">
+                    <input type="text" placeholder="Address" required />
+                    <input type="text" placeholder="ZIP/Postal Code" required />
+                </div>                   
+            </div>
+
+            <div class="form-group">
+                <label>Delivery</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="delivery" value="Bandar Area" checked />
+                        Bandar <span class="radio-price">$7</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery" value="Tutong Area" />
+                        Tutong <span class="radio-price">$6</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery" value="Belait Area" />
+                        Kuala Belait <span class="radio-price">$5</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery" value="Lumut Area" />
+                        Lumut <span class="radio-price">$2</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="form-group">
+                <label>Payment</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="paymentMethod" value="BIBD" required /> BIBD Transfer </label>
+                    <label><input type="radio" name="paymentMethod" value="Cash" /> Cash </label>
+                </div>
+            </div>
+
+            <!-- FIXED: Button INSIDE FORM -->
+            <button type="submit" class="purchase-btn">Purchase</button>
+
+        </form>
+        <!-- END FORM -->
+
+        <section class="order-summary" aria-labelledby="order-summary-title">
+            <h2 id="order-summary-title">Your Order</h2>
+            <div id="order-items"></div>
+            <div class="order-totals">
+                <div><span>Shipping: </span><span id="shipping-price"></span></div>
+                <div class="total"><span>Total: </span><span id="total-price">BND$0</span></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-contact">
+            <div class="contact-items">
+                <p><i class="fas fa-map-marker-alt"></i> RPN Kampung Lumut, Kuala Belait</p>
+                <p><i class="fas fa-envelope"></i>
+                    <a href=mailto:"softlylabel@gmail.com">softlylabel@gmail.com</a></p>
+                <p><i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/SoftlyLabel/" target="_blank">@softlylabel</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Softly Label. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
